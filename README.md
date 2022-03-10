@@ -1,5 +1,7 @@
 # Aware_AppUsage_Plugin
 
+https://jitpack.io/#KarasawaTakumi0621/aware_appusage_plugin/ver1.0
+
 ## Overview
 This plugin enables [UsageStatsEvent data](https://developer.android.com/reference/kotlin/android/app/usage/UsageEvents.Event) streaming, DB storage, storage on AWARE-micro server, etc. using [AWARE Framework's](https://awareframework.com/) [Core infrastructure.](https://github.com/awareframework/com.awareframework.android.core) 
 This is an unofficial plugin of AWAREFramework. If you have any questions about this plugin, please contact the following Twitter account.
