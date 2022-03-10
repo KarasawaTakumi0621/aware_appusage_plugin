@@ -1,9 +1,8 @@
 # Aware_AppUsage_Plugin
 
 ## Overview
-[AWARE Framework](https://awareframework.com/)の[Core基盤](https://github.com/awareframework/com.awareframework.android.core)を利用し, [UsageStatsEvent](https://developer.android.com/reference/kotlin/android/app/usage/UsageEvents.Event)のデータを
-ストリーミング/DB保存/aware-microサーバーへの保存等を行えるようにするプラグイン. 
-※AwareFramework非公式プラグインです. このプラグインに関する問い合わせは下記Twitterまでお願いいたします.
+This plugin enables [UsageStatsEvent data](https://developer.android.com/reference/kotlin/android/app/usage/UsageEvents.Event) streaming, DB storage, storage on AWARE-micro server, etc. using [AWARE Framework's](https://awareframework.com/) [Core infrastructure.](https://github.com/awareframework/com.awareframework.android.core) 
+This is an unofficial plugin of AWAREFramework. If you have any questions about this plugin, please contact the following Twitter account.
 
 ## Requirement
 - Kotlin
@@ -12,7 +11,7 @@
 
 ## Usage
 ### Install
-Jitpackを利用しています。Build.gradleの2ファイルに下記のように追加してください.
+We are using Jitpack, please add the following to the two files of Build.gradle.
 
 (Root) Build.gradle
 ```(Root) Build.gradle
@@ -35,7 +34,7 @@ dependencies {
 }
 ```
 
-Setting.gradleに以下のように追記します.
+Add the following to Setting.gradle.
 ```
 dependencyResolutionManagement {
     repositories {
