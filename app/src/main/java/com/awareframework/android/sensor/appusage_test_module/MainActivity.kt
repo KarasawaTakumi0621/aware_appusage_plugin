@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         // To start the service.
         AppusageSensor.start(applicationContext, AppusageSensor.Config().apply {
 
-            interval = 60000//1分
+            interval = 6000//1分
             usageAppDisplaynames = mutableListOf("com.twitter.android", "com.facebook.orca", "com.facebook.katana", "com.instagram.android", "jp.naver.line.android", "com.ss.android.ugc.trill")
             usageAppEventTypes = mutableListOf(UsageEvents.Event.ACTIVITY_PAUSED, UsageEvents.Event.ACTIVITY_RESUMED)
             dbHost = ""
@@ -49,13 +49,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    override fun onStop() {
-        super.onStop()
-        Intent().also { intent ->
-            intent.action = AppusageSensor.ACTION_AWARE_APPUSAGE_SYNC
-            sendBroadcast(intent)
-        }
-    }
+//    override fun onStop() {
+//        super.onStop()
+//        Intent().also { intent ->
+//            intent.action = AppusageSensor.ACTION_AWARE_APPUSAGE_SYNC
+//            sendBroadcast(intent)
+//        }
+//    }
 
 
     //TODO:このパーミッションチェックは、ライブラリ側に持たせたい

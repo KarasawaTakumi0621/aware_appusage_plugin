@@ -30,6 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.awareframework.android.sensor.appusage_test_module'
 }
 
 dependencies {
