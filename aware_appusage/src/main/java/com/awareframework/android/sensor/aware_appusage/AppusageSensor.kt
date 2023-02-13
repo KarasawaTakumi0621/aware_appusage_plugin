@@ -127,7 +127,7 @@ class AppusageSensor : AwareSensor(){
             PendingIntent.getActivity(this, 0, it, 0)
         }
 //        val notification = NotificationCompat.Builder(this, channelId)
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_aware_accessibility_white)
             .setContentTitle(CONFIG.awareUsageAppNotificationTitle)
             .setContentText(CONFIG.awareUsageAppNotificationDescription)
