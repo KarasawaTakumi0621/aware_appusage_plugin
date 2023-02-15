@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
             awareUsageAppNotificationTitle = "studying now"
             awareUsageAppNotificationDescription = "App usage history is being retrieved."
-            awareUsageAppNoticationId = "appusage_notification"
+            awareUsageAppNoticationId = "appusage_notification_id"
 
             dbType = Engine.DatabaseType.ROOM
 

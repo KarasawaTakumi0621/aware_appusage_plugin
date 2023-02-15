@@ -2,23 +2,21 @@ package com.awareframework.android.sensor.aware_appusage
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.os.IBinder
-import android.os.Build;
-import android.os.Handler
-import android.os.HandlerThread
-import android.util.Log
-import java.util.Calendar
-
 import android.app.PendingIntent
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.*
+import android.os.Build
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.IBinder
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-
 import com.awareframework.android.core.AwareSensor
 import com.awareframework.android.core.model.SensorConfig
 import com.awareframework.android.sensor.aware_appusage.model.AppusageData
+import java.util.*
 
 
 /**
@@ -30,7 +28,7 @@ class AppusageSensor : AwareSensor(){
 
     companion object {
         const val TAG = "AWARE::Appusage"
-        const val CHANNEL_ID = "appusage_notification"
+        const val CHANNEL_ID = "appusage_notification_id"
 
         const val ACTION_AWARE_APPUSAGE = "ACTION_AWARE_APPUSAGE"
 
@@ -122,16 +120,21 @@ class AppusageSensor : AwareSensor(){
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
 
+        val channelId = getString(R.string.default_notification_channel_id)
+        val channelName = getString(R.string.default_notification_channel_name)
+
         val openIntent = Intent(this, AppusageSensor::class.java).let {
             PendingIntent.getActivity(this, 0, it, 0)
         }
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+//        val notification = NotificationCompat.Builder(this, channelId)
+        val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_aware_accessibility_white)
             .setContentTitle(CONFIG.awareUsageAppNotificationTitle)
             .setContentText(CONFIG.awareUsageAppNotificationDescription)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(openIntent)
             .build()
+
         startForeground(8000, notification)
 
         sensorHandler.post(runnable)
@@ -223,7 +226,7 @@ class AppusageSensor : AwareSensor(){
         var usageAppEventTypes:MutableList<Int> = mutableListOf<Int>(),
         var awareUsageAppNotificationTitle: String = "",
         var awareUsageAppNotificationDescription: String = "",
-        var awareUsageAppNoticationId:  String = "",
+        var awareUsageAppNoticationId:  String = "appusage_notification_id",
 
     ) : SensorConfig(dbPath = "aware_appusage") {
 
